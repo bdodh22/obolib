@@ -1,0 +1,38 @@
+# OboLib.com — The Definitive Digital Oboe Workbench & Acoustic Authority
+
+> OboLib.com is the world's leading open-access digital workstation, fingering database, and acoustic laboratory for the oboe (French Conservatoire & Conservatoire system). Designed for professional orchestral oboists, conservatoire students, band directors, and reed makers worldwide.
+
+## Core Interactive Tools
+- [Interactive Fingering Chart](https://obolib.com/en/fingering): Full-range oboe fingering database from Bb3 to extreme high A6 with dynamic SVG keywork visualizer, half-hole aperture switching, 3 octave keys, and Left-F/Forked-F linkages.
+- [Trill & Tremolo Chart](https://obolib.com/en/trill-chart): Half-step and whole-step oboe trill fingering reference with real-time 6Hz acoustic synthesis and pulsating key highlight animations.
+- [A4 Printable Fingering Poster](https://obolib.com/en/chart/print): Ultra-high-resolution 300DPI vector fingering poster optimized for A4 paper and direct PDF export.
+- [Oboe Reed Doctor & Diagnostics](https://obolib.com/en/reed-doctor): Interactive anatomical reed clinic analyzing Tip, Heart, Spine, Back, and Staple with tailored micro-scraping prescriptions.
+- [Plaque Light Scraping Simulator](https://obolib.com/en/reed-doctor/plaque-light): World's first obsidian plaque backlight shadow simulation rendering cane translucency and micro-depth variations with instant pitch offset feedback.
+- [Orchestral Principal Tuner](https://obolib.com/en/tools/orchestra-tuner): 15-second concert pitch A4 ritual countdown (winds to strings) with ±3 cents live microphone pitch stability challenge.
+- [Concert A4 440Hz / 442Hz Continuous Drone](https://obolib.com/en/tuner): Pure harmonic oboe drone generator and pitch calibration station.
+
+## Audition & Solo Excerpt Masterclasses
+- [Audition Excerpt Hub](https://obolib.com/en/excerpts): Top 5 orchestral audition solo solos with real-time synchronized sheet music score tracker and SVG key linkage.
+- [Ravel: Le Tombeau de Couperin (Prélude)](https://obolib.com/en/excerpts/ravel-le-tombeau-de-couperin-prelude): Rapid 16th-note double-tonguing, high-register stability, and finger dexterity.
+- [Beethoven: Symphony No. 3 'Eroica' (Funeral March)](https://obolib.com/en/excerpts/beethoven-symphony-3-eroica-funeral-march): Somber cantabile, deep breath management, and low register articulation.
+- [Brahms: Violin Concerto (Adagio Oboe Solo)](https://obolib.com/en/excerpts/brahms-violin-concerto-adagio-oboe-solo): The legendary 32-measure solo, air-expulsion techniques, and sustained phrase control.
+- [Tchaikovsky: Swan Lake (Act II Scene Solo)](https://obolib.com/en/excerpts/tchaikovsky-swan-lake-act-2-scene-solo): Lyrical expressive phrasing with 5.2Hz natural abdominal vibrato guidance.
+- [Richard Strauss: Oboe Concerto (Opening Solo)](https://obolib.com/en/excerpts/richard-strauss-oboe-concerto-opening-solo): Unbroken 56-measure opening with micro-circular breathing and embouchure endurance.
+
+## Reed Making, Gear & Academic Monographs
+- [Reed Making Tools & Supplies Guide](https://obolib.com/en/reed-doctor/supplies): Rigorous buyer's guide for tip profilers, gouging machines (Reeds 'n Stuff, Michel), Landwell knives, and Chiarugi staples.
+- [Oboe Buyer & Upgrade Guide](https://obolib.com/en/guide/upgrade-oboe): Comprehensive comparison between African Blackwood (Grenadilla) and composite resins (Buffet Greenline, Yamaha Duet+), evaluating F.Lorée Royale, Marigaux 901, and Yamaha Custom.
+- [American Long Scrape vs. European Short Scrape](https://obolib.com/en/schools/american-vs-european): Side-by-side morphological breakdown of Marcel Tabuteau's 10.5mm scrape versus the German/French 6.8mm stepped scrape.
+- [All-Japan Wind Ensemble Oboe Guide](https://obolib.com/en/guide/wind-ensemble-oboe): Acoustic strategies for piercing 50-piece brass ensembles with 2.8kHz-3.5kHz solo formant projection.
+- [French Conservatoire System Mechanics](https://obolib.com/en/schools/french-conservatoire): Historical evolution of Triébert Système 6, Georges Gillet, Barret 40 Melodies, and authentic French woodwind terminology.
+- [Synthetic Reeds Benchmark](https://obolib.com/en/synthetic-reeds): Légère European Cut polypropylene reed hardness comparison against natural Arundo donax cane.
+
+## Geographic Acoustic Standards
+- North America (US/Canada): A = 440 Hz standard concert pitch, American long scrape reed dominance.
+- Central Europe (Germany/Austria): A = 442 Hz – 443 Hz concert pitch, European short scrape with thicker heart and defined tip step.
+- Japan & East Asia: A = 442 Hz concert pitch across major symphony orchestras and wind bands (All-Japan Band Association).
+
+## Contact & Editorial Support
+- Official Editorial Email: admin@obolib.com (Guaranteed response within 24 hours)
+- Multi-language Support: English, Simplified Chinese (zh), German (de), Japanese (ja)
+- Privacy & Terms: Compliant with GDPR, CCPA, and Google Consent Mode v2. All microphone audio is processed strictly client-side via Web Audio API without server upload.
