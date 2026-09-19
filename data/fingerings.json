@@ -1,0 +1,289 @@
+{
+  "fingerings": [
+    {
+      "note": "Bb1",
+      "octave": 1,
+      "type": "basic",
+      "nameZh": "降B1 (低音区)",
+      "nameEn": "B-flat 1",
+      "freq": 58.27,
+      "keys": {
+        "leftThumb": ["whiskey", "C"],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": ["1", "2", "3", "lowEb", "lowDb", "lowC"],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "B1",
+      "octave": 1,
+      "type": "basic",
+      "nameZh": "B1 (低音区)",
+      "nameEn": "B 1",
+      "freq": 61.74,
+      "keys": {
+        "leftThumb": ["whiskey"],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": ["1", "2", "3", "lowEb", "lowDb", "lowC"],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "C2",
+      "octave": 1,
+      "type": "basic",
+      "nameZh": "C2 (低音区)",
+      "nameEn": "C 2",
+      "freq": 65.41,
+      "keys": {
+        "leftThumb": ["whiskey"],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": ["1", "2", "3", "lowEb", "lowDb"],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "D2",
+      "octave": 1,
+      "type": "basic",
+      "nameZh": "D2 (低音区)",
+      "nameEn": "D 2",
+      "freq": 73.42,
+      "keys": {
+        "leftThumb": [],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": ["1", "2", "3", "lowEb"],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "E2",
+      "octave": 1,
+      "type": "basic",
+      "nameZh": "E2 (低音区)",
+      "nameEn": "E 2",
+      "freq": 82.41,
+      "keys": {
+        "leftThumb": [],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": ["1", "2", "3"],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "F2",
+      "octave": 1,
+      "type": "basic",
+      "nameZh": "F2 (中低音区)",
+      "nameEn": "F 2",
+      "freq": 87.31,
+      "keys": {
+        "leftThumb": [],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": ["1", "2"],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "G2",
+      "octave": 1,
+      "type": "basic",
+      "nameZh": "G2 (中低音区)",
+      "nameEn": "G 2",
+      "freq": 98.0,
+      "keys": {
+        "leftThumb": [],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": ["1"],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "A2",
+      "octave": 2,
+      "type": "basic",
+      "nameZh": "A2 (中音区)",
+      "nameEn": "A 2",
+      "freq": 110.0,
+      "keys": {
+        "leftThumb": [],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "Bb2",
+      "octave": 2,
+      "type": "basic",
+      "nameZh": "降B2 (中音区)",
+      "nameEn": "B-flat 2",
+      "freq": 116.54,
+      "keys": {
+        "leftThumb": ["thumbBb"],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "C3",
+      "octave": 2,
+      "type": "basic",
+      "nameZh": "C3 (中音区)",
+      "nameEn": "C 3",
+      "freq": 130.81,
+      "keys": {
+        "leftThumb": [],
+        "leftHand": ["2", "3"],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "D3",
+      "octave": 2,
+      "type": "basic",
+      "nameZh": "D3 (中音区)",
+      "nameEn": "D 3",
+      "freq": 146.83,
+      "keys": {
+        "leftThumb": [],
+        "leftHand": ["3"],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "E3",
+      "octave": 2,
+      "type": "basic",
+      "nameZh": "E3 (中音区)",
+      "nameEn": "E 3",
+      "freq": 164.81,
+      "keys": {
+        "leftThumb": ["whiskey"],
+        "leftHand": ["1"],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "F3",
+      "octave": 2,
+      "type": "basic",
+      "nameZh": "F3 (中高音区)",
+      "nameEn": "F 3",
+      "freq": 174.61,
+      "keys": {
+        "leftThumb": [],
+        "leftHand": [],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "G3",
+      "octave": 2,
+      "type": "basic",
+      "nameZh": "G3 (中高音区)",
+      "nameEn": "G 3",
+      "freq": 196.0,
+      "keys": {
+        "leftThumb": ["speaker1"],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": ["1"],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "A3",
+      "octave": 3,
+      "type": "basic",
+      "nameZh": "A3 (高音区)",
+      "nameEn": "A 3",
+      "freq": 220.0,
+      "keys": {
+        "leftThumb": ["speaker1"],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "Bb3",
+      "octave": 3,
+      "type": "basic",
+      "nameZh": "降B3 (高音区)",
+      "nameEn": "B-flat 3",
+      "freq": 233.08,
+      "keys": {
+        "leftThumb": ["speaker1", "thumbBb"],
+        "leftHand": ["1", "2", "3"],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "C4",
+      "octave": 3,
+      "type": "basic",
+      "nameZh": "C4 (高音区)",
+      "nameEn": "C 4",
+      "freq": 261.63,
+      "keys": {
+        "leftThumb": ["speaker2"],
+        "leftHand": ["2", "3"],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "D4",
+      "octave": 3,
+      "type": "basic",
+      "nameZh": "D4 (高音区)",
+      "nameEn": "D 4",
+      "freq": 293.66,
+      "keys": {
+        "leftThumb": ["speaker2"],
+        "leftHand": ["3"],
+        "rightHand": [],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    },
+    {
+      "note": "E4",
+      "octave": 3,
+      "type": "basic",
+      "nameZh": "E4 (超高音区)",
+      "nameEn": "E 4",
+      "freq": 329.63,
+      "keys": {
+        "leftThumb": ["speaker3"],
+        "leftHand": ["1"],
+        "rightHand": ["1"],
+        "bell": "open"
+      },
+      "source": "wfg.woodwind.org / IDRS"
+    }
+  ]
+}
