@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { ALL_LOCALES, getLocalizedPath } from '@/lib/i18n/config';
 import { getInstrumentConfig } from '@/src/config/instrument.config';
+import { OBOE_SCORES_CATALOG } from '@/data/scoresCatalog';
+import { OBOE_KNOWLEDGE_ARTICLES } from '@/data/knowledgeArticles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const config = getInstrumentConfig();
@@ -28,14 +30,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/excerpts/richard-strauss-oboe-concerto-opening-solo', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/tuner', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/tools/orchestra-tuner', priority: 0.9, changeFrequency: 'weekly' as const },
-    { path: '/scores', priority: 0.85, changeFrequency: 'daily' as const },
-    { path: '/tools', priority: 0.85, changeFrequency: 'weekly' as const },
-    { path: '/knowledge', priority: 0.85, changeFrequency: 'weekly' as const },
+    { path: '/scores', priority: 0.9, changeFrequency: 'daily' as const },
+    { path: '/tools', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: '/knowledge', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/membership', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/privacy-policy', priority: 0.5, changeFrequency: 'monthly' as const },
     { path: '/terms-of-service', priority: 0.5, changeFrequency: 'monthly' as const },
   ];
+
+  // 动态加入 6 大双簧管传世分谱
+  for (const score of OBOE_SCORES_CATALOG) {
+    baseStaticSubpaths.push({
+      path: `/scores/${score.slug}`,
+      priority: 0.88,
+      changeFrequency: 'weekly' as const,
+    });
+  }
+
+  // 动态加入 6 大双簧管实战百科
+  for (const article of OBOE_KNOWLEDGE_ARTICLES) {
+    baseStaticSubpaths.push({
+      path: `/knowledge/${article.slug}`,
+      priority: 0.88,
+      changeFrequency: 'weekly' as const,
+    });
+  }
 
   const localizedStaticRoutes: MetadataRoute.Sitemap = [];
 

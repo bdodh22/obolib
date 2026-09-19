@@ -299,6 +299,14 @@ export class OboeSynthesizer {
       this.droneVibrato = null;
     }
   }
+
+  public startContinuousDrone(frequency: number = 440.0, volume: number = 0.4) {
+    this.startDrone(frequency, volume);
+  }
+
+  public stopContinuousDrone() {
+    this.stopDrone();
+  }
 }
 
 export const oboeSynth = new OboeSynthesizer();
