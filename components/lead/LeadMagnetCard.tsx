@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Download, Mail, CheckCircle2, Sparkles, ShieldCheck } from 'lucide-react';
 import { Locale } from '@/lib/i18n/config';
+import { trackEvent } from '@/lib/analytics';
 
 interface LeadMagnetCardProps {
   locale: Locale;
@@ -26,6 +27,11 @@ export default function LeadMagnetCard({ locale }: LeadMagnetCardProps) {
       try {
         localStorage.setItem('obolib_lead_captured', email);
       } catch {}
+      trackEvent('lead_capture_submit', {
+        email,
+        locale,
+        lead_type: '300dpi_poster_pdf',
+      });
     }, 600);
   };
 

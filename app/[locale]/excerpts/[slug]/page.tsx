@@ -15,6 +15,8 @@ interface PageProps {
   };
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
   for (const locale of ALL_LOCALES) {

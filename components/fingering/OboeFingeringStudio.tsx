@@ -17,6 +17,7 @@ import {
 import { OBOE_FINGERINGS, OboeFingeringEntry } from '@/data/oboeFingerings';
 import OboeSvgVisualizer from './OboeSvgVisualizer';
 import { oboeSynth } from '@/lib/audio/oboeSynth';
+import { trackEvent } from '@/lib/analytics';
 
 interface OboeFingeringStudioProps {
   locale: string;
@@ -138,6 +139,11 @@ export default function OboeFingeringStudio({ locale }: OboeFingeringStudioProps
     setSelectedAltIndex(0);
     const target = OBOE_FINGERINGS.find((n) => n.id === id);
     if (target) {
+      trackEvent('tool_calculate', {
+        tool_name: 'fingering_studio',
+        note: target.scientificNote,
+        frequency: target.frequency,
+      });
       if (isDroneActive) {
         oboeSynth.startContinuousDrone(target.frequency, 0.4);
       } else {

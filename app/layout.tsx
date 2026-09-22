@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'google-site-verification-placeholder-obolib',
+    other: {
+      'msvalidate.01': 'msvalidate-placeholder-obolib',
+    },
   },
 };
 
@@ -59,7 +62,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

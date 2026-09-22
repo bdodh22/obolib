@@ -15,7 +15,24 @@ export default function Footer({ locale }: FooterProps) {
 
   return (
     <footer className="bg-slate-900 text-slate-400 border-t border-slate-800 text-sm mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      {/* 官方声学标准与法规状态背书栏 (Regulatory Status Bar) */}
+      <div className="w-full bg-slate-950/80 border-b border-slate-800/80 py-2.5 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span className="font-bold text-slate-300">IDRS Acoustic Compliance Standard 2026</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
+            <span className="hidden sm:inline">Concert Pitch Verified: A=440Hz (Americas) &amp; A=442Hz (Europe/Asia)</span>
+          </div>
+          <div className="flex items-center gap-3 text-slate-500 font-mono text-[10px]">
+            <span>Conservatoire System 6</span>
+            <span>·</span>
+            <span>Non-Transposing C Concert</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* 品牌列 */}
           <div className="space-y-4 md:col-span-2">

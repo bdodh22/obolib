@@ -10,7 +10,8 @@
     "seo:audit": "node scripts/seo-audit.mjs",
     "i18n:audit": "node scripts/i18n-audit.mjs",
     "cwv:audit": "node scripts/cwv-audit.mjs",
-    "geo:audit": "node scripts/geo-audit.mjs"
+    "geo:audit": "node scripts/geo-audit.mjs",
+    "indexnow:push": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.0.0",

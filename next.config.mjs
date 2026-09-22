@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  trailingSlash: false,
   reactStrictMode: true,
   poweredByHeader: false,
   webpack: (config) => {

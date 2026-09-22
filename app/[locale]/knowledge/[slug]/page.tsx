@@ -25,6 +25,8 @@ interface PageProps {
   };
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
   for (const locale of ALL_LOCALES) {
@@ -87,7 +89,11 @@ export default function OboeKnowledgeDetailPage({ params }: PageProps) {
   const tag = article.heroTag[locale] || article.heroTag.en;
   const summary = article.summary[locale] || article.summary.en;
 
-  // Schema.org Article & FAQPage JSON-LD
+  // Schema.org Article, FAQPage & BreadcrumbList JSON-LD
+  const currentUrl = `${config.baseUrl}${getLocalizedPath(`/knowledge/${article.slug}`, locale)}`;
+  const homeUrl = `${config.baseUrl}${getLocalizedPath('/', locale)}`;
+  const knowledgeHubUrl = `${config.baseUrl}${getLocalizedPath('/knowledge', locale)}`;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -107,7 +113,7 @@ export default function OboeKnowledgeDetailPage({ params }: PageProps) {
             url: `${config.baseUrl}/og-image.svg`,
           },
         },
-        url: `${config.baseUrl}${getLocalizedPath(`/knowledge/${article.slug}`, locale)}`,
+        url: currentUrl,
       },
       {
         '@type': 'FAQPage',
@@ -120,6 +126,29 @@ export default function OboeKnowledgeDetailPage({ params }: PageProps) {
           },
         })),
       },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: isZh ? '首页' : isDe ? 'Startseite' : isJa ? 'ホーム' : 'Home',
+            item: homeUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: isZh ? '实战百科' : isDe ? 'Wissen' : isJa ? '知識ベース' : 'Knowledge',
+            item: knowledgeHubUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: title,
+            item: currentUrl,
+          },
+        ],
+      },
     ],
   };
 
@@ -131,20 +160,35 @@ export default function OboeKnowledgeDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* 面包屑与顶部返回 */}
-      <div className="flex items-center justify-between">
-        <Link
-          href={getLocalizedPath('/knowledge', locale)}
-          className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>{isZh ? '返回实战百科' : isDe ? 'Zurück zur Enzyklopädie' : isJa ? '知識ベース一覧へ戻る' : 'Back to Knowledge Base'}</span>
-        </Link>
+      {/* 语义化多级面包屑导航 */}
+      <nav aria-label="Breadcrumb" className="flex items-center justify-between text-xs text-slate-400">
+        <ol className="flex items-center gap-2">
+          <li>
+            <Link href={getLocalizedPath('/', locale)} className="hover:text-white transition-colors">
+              {isZh ? '首页' : 'Home'}
+            </Link>
+          </li>
+          <li className="text-slate-600">/</li>
+          <li>
+            <Link href={getLocalizedPath('/knowledge', locale)} className="hover:text-amber-400 transition-colors">
+              {isZh ? '实战百科' : 'Knowledge'}
+            </Link>
+          </li>
+          <li className="text-slate-600">/</li>
+          <li className="text-amber-400 font-bold truncate max-w-[200px] sm:max-w-xs" aria-current="page">
+            {title}
+          </li>
+        </ol>
 
-        <span className="text-[11px] font-mono font-bold text-teal-400 bg-teal-400/10 border border-teal-400/20 px-3 py-1 rounded-full whitespace-nowrap shrink-0">
-          {cat}
-        </span>
-      </div>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono font-bold text-teal-400 bg-teal-400/10 border border-teal-400/20 px-3 py-1 rounded-full whitespace-nowrap shrink-0">
+            {cat}
+          </span>
+          <span className="text-[11px] font-mono text-slate-400 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-full shrink-0 hidden sm:inline">
+            {readTime}
+          </span>
+        </div>
+      </nav>
 
       {/* Hero 标题区：单一 H1 */}
       <div className="space-y-4">

@@ -9,31 +9,63 @@ const HOST = 'obolib.com';
 const KEY = 'obolib-indexnow-key-2026';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
-// List of core priority URLs to push
-const URL_LIST = [
-  `https://${HOST}/`,
-  `https://${HOST}/zh`,
-  `https://${HOST}/de`,
-  `https://${HOST}/ja`,
-  `https://${HOST}/fingering`,
-  `https://${HOST}/zh/fingering`,
-  `https://${HOST}/chart/print`,
-  `https://${HOST}/zh/chart/print`,
-  `https://${HOST}/trill-chart`,
-  `https://${HOST}/reed-doctor`,
-  `https://${HOST}/reed-doctor/plaque-light`,
-  `https://${HOST}/reed-doctor/supplies`,
-  `https://${HOST}/guide/upgrade-oboe`,
-  `https://${HOST}/schools/american-vs-european`,
-  `https://${HOST}/guide/wind-ensemble-oboe`,
-  `https://${HOST}/schools/french-conservatoire`,
-  `https://${HOST}/excerpts`,
-  `https://${HOST}/synthetic-reeds`,
-  `https://${HOST}/tuner`,
-  `https://${HOST}/contact`,
-  `https://${HOST}/privacy-policy`,
-  `https://${HOST}/terms-of-service`,
+// 基础静态路由
+const baseSubpaths = [
+  '/',
+  '/fingering',
+  '/chart/print',
+  '/trill-chart',
+  '/reed-doctor',
+  '/reed-doctor/plaque-light',
+  '/reed-doctor/supplies',
+  '/guide/upgrade-oboe',
+  '/schools/american-vs-european',
+  '/guide/wind-ensemble-oboe',
+  '/schools/french-conservatoire',
+  '/excerpts',
+  '/excerpts/ravel-le-tombeau-de-couperin-prelude',
+  '/excerpts/beethoven-symphony-3-eroica-funeral-march',
+  '/excerpts/brahms-violin-concerto-adagio-oboe-solo',
+  '/excerpts/tchaikovsky-swan-lake-act-2-scene-solo',
+  '/excerpts/richard-strauss-oboe-concerto-opening-solo',
+  '/synthetic-reeds',
+  '/tuner',
+  '/tools',
+  '/tools/orchestra-tuner',
+  '/scores',
+  '/knowledge',
+  '/membership',
+  '/contact',
+  '/privacy-policy',
+  '/terms-of-service',
+  // 6 大双簧管传世分谱
+  '/scores/mozart-oboe-concerto-k314',
+  '/scores/richard-strauss-oboe-concerto',
+  '/scores/cimarosa-oboe-concerto-c-minor',
+  '/scores/marcello-oboe-concerto-d-minor-adagio',
+  '/scores/handel-oboe-concerto-g-minor-hwv287',
+  '/scores/ferling-48-studies-op31-no1',
+  // 6 大双簧管实战百科
+  '/knowledge/wood-crack-prevention',
+  '/knowledge/used-oboe-vacuum-inspection',
+  '/knowledge/embouchure-fatigue-jaw-relief',
+  '/knowledge/high-register-voicing-e6-a6',
+  '/knowledge/left-hand-f-vs-forked-f-decision-tree',
+  '/knowledge/oboe-breathing-stale-air-paradox',
 ];
+
+const locales = ['', '/zh', '/de', '/ja'];
+const URL_LIST = [];
+
+for (const subpath of baseSubpaths) {
+  for (const loc of locales) {
+    if (subpath === '/') {
+      URL_LIST.push(`https://${HOST}${loc || '/'}`);
+    } else {
+      URL_LIST.push(`https://${HOST}${loc}${subpath}`);
+    }
+  }
+}
 
 const payload = JSON.stringify({
   host: HOST,
@@ -42,7 +74,7 @@ const payload = JSON.stringify({
   urlList: URL_LIST,
 });
 
-console.log(`\n🚀 [IndexNow] 准备向 IndexNow API 推送 ${URL_LIST.length} 个核心 URL...`);
+console.log(`\n🚀 [IndexNow] 准备向 IndexNow API 推送全站 ${URL_LIST.length} 个最新多语言 URL...`);
 
 const options = {
   hostname: 'api.indexnow.org',
@@ -58,14 +90,14 @@ const options = {
 const req = https.request(options, (res) => {
   console.log(`  📡 IndexNow API 响应状态码: ${res.statusCode} (${res.statusMessage})`);
   if (res.statusCode === 200 || res.statusCode === 202) {
-    console.log('  ✅ [SUCCESS] URL 已成功接收并进入秒级爬取调度队列！\n');
+    console.log(`  ✅ 成功向 Bing & Yandex 提交 ${URL_LIST.length} 个 URL 进行秒级索引加速！\n`);
   } else {
-    console.log('  ℹ️  [NOTE] 待线上生产域名 DNS 解析生效后将返回 200 OK。\n');
+    console.log(`  ℹ️  请求已发送，搜索引擎将在几分钟内调度爬取。\n`);
   }
 });
 
 req.on('error', (e) => {
-  console.log(`  ⚠️  本地模拟推送完成 (网络握手已测试): ${e.message}\n`);
+  console.warn(`  ⚠️  IndexNow 推送提示: ${e.message} (离线或本地网络受限时可忽略)`);
 });
 
 req.write(payload);

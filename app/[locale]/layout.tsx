@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { SUBPATH_LOCALES, Locale, ALL_LOCALES } from '@/lib/i18n/config';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/legal/CookieConsent';
+import UtmTracker from '@/components/analytics/UtmTracker';
 import { getInstrumentConfig } from '@/src/config/instrument.config';
 
 export function generateStaticParams() {
@@ -56,6 +57,9 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(globalAppSchema) }}
       />
+      <Suspense fallback={null}>
+        <UtmTracker />
+      </Suspense>
       <Navbar locale={locale as Locale} />
       <main className="flex-1 pt-16">{children}</main>
       <Footer locale={locale as Locale} />

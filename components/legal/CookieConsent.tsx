@@ -25,10 +25,24 @@ export default function CookieConsent({ locale }: CookieConsentProps) {
     }
   }, []);
 
+  const updateGtagConsent = (granted: boolean) => {
+    if (typeof window === 'undefined') return;
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    if (typeof w.gtag === 'function') {
+      w.gtag('consent', 'update', {
+        analytics_storage: granted ? 'granted' : 'denied',
+        ad_storage: granted ? 'granted' : 'denied',
+        ad_user_data: granted ? 'granted' : 'denied',
+        ad_personalization: granted ? 'granted' : 'denied',
+      });
+    }
+  };
+
   const handleAccept = () => {
     try {
       localStorage.setItem('obolib_cookie_consent', 'accepted');
     } catch {}
+    updateGtagConsent(true);
     setVisible(false);
   };
 
@@ -36,6 +50,7 @@ export default function CookieConsent({ locale }: CookieConsentProps) {
     try {
       localStorage.setItem('obolib_cookie_consent', 'essential_only');
     } catch {}
+    updateGtagConsent(false);
     setVisible(false);
   };
 

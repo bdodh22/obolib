@@ -27,6 +27,8 @@ interface PageProps {
   };
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
   for (const locale of ALL_LOCALES) {
@@ -90,18 +92,49 @@ export default function OboeScoreDetailPage({ params }: PageProps) {
   const difficulty = score.difficulty[locale] || score.difficulty.en;
   const focuses = score.pedagogicalFocus[locale] || score.pedagogicalFocus.en;
 
-  // Schema.org MusicComposition JSON-LD
+  // Schema.org MusicComposition & BreadcrumbList JSON-LD
+  const currentUrl = `${config.baseUrl}${getLocalizedPath(`/scores/${score.slug}`, locale)}`;
+  const homeUrl = `${config.baseUrl}${getLocalizedPath('/', locale)}`;
+  const scoresHubUrl = `${config.baseUrl}${getLocalizedPath('/scores', locale)}`;
+
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'MusicComposition',
-    name: title,
-    composer: {
-      '@type': 'Person',
-      name: score.composer.split('(')[0].trim(),
-    },
-    musicalKey: score.keySignature,
-    description: score.metaDesc[locale] || score.metaDesc.en,
-    url: `${config.baseUrl}${getLocalizedPath(`/scores/${score.slug}`, locale)}`,
+    '@graph': [
+      {
+        '@type': 'MusicComposition',
+        name: title,
+        composer: {
+          '@type': 'Person',
+          name: score.composer.split('(')[0].trim(),
+        },
+        musicalKey: score.keySignature,
+        description: score.metaDesc[locale] || score.metaDesc.en,
+        url: currentUrl,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: isZh ? '首页' : isDe ? 'Startseite' : isJa ? 'ホーム' : 'Home',
+            item: homeUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: isZh ? '传世曲谱' : isDe ? 'Notenbibliothek' : isJa ? '名曲楽譜' : 'Scores Hub',
+            item: scoresHubUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: title,
+            item: currentUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (
@@ -112,20 +145,30 @@ export default function OboeScoreDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* 面包屑导航 */}
-      <div className="flex items-center justify-between">
-        <Link
-          href={getLocalizedPath('/scores', locale)}
-          className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>{isZh ? '返回分谱中心' : isDe ? 'Zurück zur Notenübersicht' : isJa ? '楽譜一覧へ戻る' : 'Back to Scores Hub'}</span>
-        </Link>
+      {/* 语义化多级面包屑导航 */}
+      <nav aria-label="Breadcrumb" className="flex items-center justify-between text-xs text-slate-400">
+        <ol className="flex items-center gap-2">
+          <li>
+            <Link href={getLocalizedPath('/', locale)} className="hover:text-white transition-colors">
+              {isZh ? '首页' : 'Home'}
+            </Link>
+          </li>
+          <li className="text-slate-600">/</li>
+          <li>
+            <Link href={getLocalizedPath('/scores', locale)} className="hover:text-amber-400 transition-colors">
+              {isZh ? '传世曲谱' : 'Scores'}
+            </Link>
+          </li>
+          <li className="text-slate-600">/</li>
+          <li className="text-amber-400 font-bold truncate max-w-[200px] sm:max-w-xs" aria-current="page">
+            {title}
+          </li>
+        </ol>
 
         <span className="text-[11px] font-mono font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full whitespace-nowrap shrink-0">
           {score.keySignature} · {score.timeSignature}
         </span>
-      </div>
+      </nav>
 
       {/* Hero 标题区：单一 H1 */}
       <div className="space-y-4">
